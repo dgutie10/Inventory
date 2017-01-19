@@ -18,7 +18,7 @@ public final class InventoryContract {
     public static final String PATH_INVENTORY = "inventory";
 
 
-    public static final class IventoryEntry implements BaseColumns{
+    public static final class InventoryEntry implements BaseColumns{
 
         public static final String CONTENT_LIST_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" +PATH_INVENTORY;
 

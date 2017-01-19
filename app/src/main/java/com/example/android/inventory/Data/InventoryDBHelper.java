@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.android.inventory.data.InventoryContract.IventoryEntry;
+import com.example.android.inventory.data.InventoryContract.InventoryEntry;
 
 /**
  * Created by diegog on 1/13/2017.
@@ -22,13 +22,14 @@ public class InventoryDBHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String SQL_CREATE_PETS_TABLE = "CREATE TABLE "+ IventoryEntry.TABLE_NAME + "("
-                + IventoryEntry._ID + " INTERGER PRIMARY KEY AUTOINCREMENT, "
-                + IventoryEntry.COLUMN_ITEM_NAME + " TEXT NOT NULL, "
-                + IventoryEntry.COLUMN_ITEM_PRICE + " REAL NOT NULL "
-                + IventoryEntry.COLUMN_ITEM_QUANTITY + " INTEGER NOT NULL "
-                + IventoryEntry.COLUMN_ITEM_PICTURE + " BLOB DEFAULT 0);";
-        Log.e("DBHelper", SQL_CREATE_PETS_TABLE);
+        String SQL_CREATE_INVENTORY_TABLE = "CREATE TABLE "+ InventoryEntry.TABLE_NAME + "("
+                + InventoryEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + InventoryEntry.COLUMN_ITEM_NAME + " TEXT NOT NULL, "
+                + InventoryEntry.COLUMN_ITEM_PRICE + " REAL NOT NULL, "
+                + InventoryEntry.COLUMN_ITEM_QUANTITY + " INTEGER NOT NULL, "
+                + InventoryEntry.COLUMN_ITEM_PICTURE + " BLOB DEFAULT 0);";
+        Log.e("DBHelper", SQL_CREATE_INVENTORY_TABLE);
+        db.execSQL(SQL_CREATE_INVENTORY_TABLE);
     }
 
     @Override
