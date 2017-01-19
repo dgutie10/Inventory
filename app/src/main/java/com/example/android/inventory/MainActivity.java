@@ -27,10 +27,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        insertDummyData();
+//        insertDummyData();
 
         ListView listView = (ListView) findViewById(R.id.list);
         View emptyView = findViewById(R.id.empty_view);
+        listView.setEmptyView(emptyView);
         mCursorAdapter = new InventoryCursorAdapter(this, null);
 
         listView.setAdapter(mCursorAdapter);
@@ -80,5 +81,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         mCursorAdapter.swapCursor(null);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 }
