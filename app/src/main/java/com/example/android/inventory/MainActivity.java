@@ -1,15 +1,19 @@
 package com.example.android.inventory;
 
 import android.app.LoaderManager;
+import android.content.ContentValues;
 import android.content.CursorLoader;
 import android.content.Loader;
 import android.database.Cursor;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.ListView;
 
 import com.example.android.inventory.data.InventoryContract.InventoryEntry;
-import com.example.android.inventory.data.InventoryDBHelper;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -19,19 +23,29 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
     @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        insertDummyData();
 
+        ListView listView = (ListView) findViewById(R.id.list);
+        View emptyView = findViewById(R.id.empty_view);
         mCursorAdapter = new InventoryCursorAdapter(this, null);
 
+        listView.setAdapter(mCursorAdapter);
+
         getLoaderManager().initLoader(INVENTORY_LOADER, null, this);
+    }
+
+    private void insertDummyData(){
+        ContentValues values = new ContentValues();
+        values.put(InventoryEntry.COLUMN_ITEM_NAME,"Phone");
+        values.put(InventoryEntry.COLUMN_ITEM_PRICE,700.00);
+        values.put(InventoryEntry.COLUMN_ITEM_QUANTITY, 1);
+
+        Uri NewRowUri = getContentResolver().insert(InventoryEntry.CONTENT_URI, values);
+        Log.e("MainActivity", "New row ID: "+ NewRowUri);
     }
 
     @Override
