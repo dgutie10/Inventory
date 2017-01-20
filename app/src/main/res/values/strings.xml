@@ -4,4 +4,7 @@
     <string name="empty_view_message">The inventory is empty...</string>
     <string name="empty_view_instructions">Start by adding new items to the inventory.</string>
     <string name="action_add">Add New Item</string>
+    <string name="editor_activity_title_new_item">Add new item</string>
+    <string name="editor_activity_title_edit_item">Edit item</string>
+
 </resources>

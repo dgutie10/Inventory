@@ -32,7 +32,6 @@ public class InventoryProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        Log.e("InventoryProvider", "Hello");
         mDBHelper = new InventoryDBHelper(getContext());
         return true;
     }
