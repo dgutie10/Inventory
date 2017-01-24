@@ -96,6 +96,9 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                 saveItem();
                 finish();
                 return true;
+            case R.id.action_delete_item:
+                showDeleteConfirmationDialog();
+                return true;
         }
         return  super.onOptionsItemSelected(item);
     }
@@ -193,5 +196,35 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    private void  showDeleteConfirmationDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.delete_dialog_msg);
+        builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                deleteItem();
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if(dialog != null) dialog.dismiss();
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    private void deleteItem(){
+        if (currentUri != null){
+            int rowDeleted = getContentResolver().delete(currentUri, null, null);
+
+            if (rowDeleted == 0 ) Toast.makeText(this, "Error deleting item",Toast.LENGTH_SHORT).show();
+            else Toast.makeText(this, "Item deleted",Toast.LENGTH_SHORT).show();
+        }
+        finish();
     }
 }
