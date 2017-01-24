@@ -22,15 +22,37 @@
                 android:text="Name"/>
             <EditText
                 style="@style/EditTextStyle"
+                android:id="@+id/item_name"
                 android:hint="Item name"/>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <TextView
+                style="@style/EditLabelStyle"
+                android:text="Price"/>
+            <EditText
+                style="@style/EditTextStyle"
+                android:id="@+id/item_price"
+                android:hint="Price"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <TextView
+                style="@style/EditLabelStyle"
+                android:text="Quantity"/>
+            <EditText
+                style="@style/EditTextStyle"
+                android:id="@+id/item_quantity"
+                android:hint="Quantity"/>
+        </LinearLayout>
 
-        <!--<LinearLayout-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1">-->
-            <!---->
-        <!--</LinearLayout>-->
+
 
     </LinearLayout>
 

@@ -4,7 +4,13 @@
     <string name="empty_view_message">The inventory is empty...</string>
     <string name="empty_view_instructions">Start by adding new items to the inventory.</string>
     <string name="action_add">Add New Item</string>
+    <string name="action_save">Save Item</string>
+    <string name="action_delete">Delete Item</string>
     <string name="editor_activity_title_new_item">Add new item</string>
     <string name="editor_activity_title_edit_item">Edit item</string>
+
+    <string name="unsaved_changes_dialog_message">Discard your changes and quit editing?</string>
+    <string name="discard">Discard</string>
+    <string name="keep_editing">Keep Editing</string>
 
 </resources>
