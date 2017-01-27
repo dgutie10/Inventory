@@ -1,5 +1,6 @@
 package com.example.android.inventory;
 
+import android.app.Activity;
 import android.app.LoaderManager;
 import android.content.ContentValues;
 import android.content.CursorLoader;
@@ -7,19 +8,31 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.FloatProperty;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.android.inventory.data.InventoryContract.InventoryEntry;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.DecimalFormat;
 
 /**
  * Created by diegog on 1/20/2017.
@@ -30,9 +43,13 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     private EditText mNameEditText;
     private EditText mPriceEditText;
     private EditText mQuantityEditText;
+    private ImageButton mImageButton;
+    private Bitmap mImageBitmap;
+
 
     private Uri currentUri;
     private int ITEM_LOADER = 0;
+    public static final int GET_FROM_GALLERY = 0;
 
     private boolean itemChanged = false;
 
@@ -64,11 +81,25 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         mNameEditText = (EditText) findViewById(R.id.item_name);
         mPriceEditText = (EditText) findViewById(R.id.item_price);
         mQuantityEditText = (EditText) findViewById(R.id.item_quantity);
+        mImageButton = (ImageButton) findViewById(R.id.item_image);
 
 
         mNameEditText.setOnTouchListener(onTouchListener);
         mPriceEditText.setOnTouchListener(onTouchListener);
         mQuantityEditText.setOnTouchListener(onTouchListener);
+        mImageButton.setOnTouchListener(onTouchListener);
+
+        mImageButton.setOnClickListener(new ImageButton.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(intent.createChooser(intent,"Select Picture"),GET_FROM_GALLERY);
+            }
+        });
+
+
 
         getLoaderManager().initLoader(ITEM_LOADER, null,this);
     }
@@ -99,6 +130,20 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             case R.id.action_delete_item:
                 showDeleteConfirmationDialog();
                 return true;
+            case android.R.id.home:
+                if (!itemChanged){
+                    NavUtils.navigateUpFromSameTask(this);
+                    return true;
+                }
+
+                DialogInterface.OnClickListener discardButtonClickListener = new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        NavUtils.navigateUpFromSameTask(EditorActivity.this);
+                    }
+                };
+                showUnsavedChangeDialog(discardButtonClickListener);
+                return true;
         }
         return  super.onOptionsItemSelected(item);
     }
@@ -110,17 +155,35 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         String price = mPriceEditText.getText().toString().trim();
         String quantity = mQuantityEditText.getText().toString().trim();
 
-        if (currentUri == null && TextUtils.isEmpty(name) && TextUtils.isEmpty(price) && TextUtils.isEmpty(quantity)) return;
+        if (mImageBitmap != null){
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            mImageBitmap.compress(Bitmap.CompressFormat.JPEG,0, byteArrayOutputStream);
+            byte[] img = byteArrayOutputStream.toByteArray();
+            values.put(InventoryEntry.COLUMN_ITEM_PICTURE, img);
+        }
+
+
+        if (currentUri ==null && TextUtils.isEmpty(name)&& TextUtils.isEmpty(price)&& TextUtils.isEmpty(quantity)) {
+            return;
+        }
 
         values.put(InventoryEntry.COLUMN_ITEM_NAME, name);
         values.put(InventoryEntry.COLUMN_ITEM_QUANTITY,Integer.parseInt(quantity));
         values.put(InventoryEntry.COLUMN_ITEM_PRICE, Double.parseDouble(price));
+        ;
+
+
 
 
         if (currentUri == null){
             Uri newRowId = getContentResolver().insert(InventoryEntry.CONTENT_URI, values);
             if (newRowId == null) Toast.makeText(this, "Error Saving Item", Toast.LENGTH_SHORT).show();
             else Toast.makeText(this,"Item Saved", Toast.LENGTH_SHORT).show();
+        } else {
+            int itemUpdated = getContentResolver().update(currentUri, values,null,null);
+
+            if (itemUpdated != 0) Toast.makeText(this,"Item Saved", Toast.LENGTH_SHORT).show();
+            else Toast.makeText(this, "Error Updating Item"+ String.valueOf(itemUpdated), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -145,16 +208,24 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         }
     }
 
+
+
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         if (data.moveToFirst()){
             String name = data.getString(data.getColumnIndex(InventoryEntry.COLUMN_ITEM_NAME));
             int quantity = data.getInt(data.getColumnIndex(InventoryEntry.COLUMN_ITEM_QUANTITY));
             float price = data.getFloat(data.getColumnIndex(InventoryEntry.COLUMN_ITEM_PRICE));
+            byte[] image = data.getBlob(data.getColumnIndex(InventoryEntry.COLUMN_ITEM_PICTURE));
+
+            mImageBitmap = BitmapFactory.decodeByteArray(image,0, image.length);
+
+            DecimalFormat decimalFormat = new DecimalFormat(".00");
 
             mNameEditText.setText(name);
             mQuantityEditText.setText(Integer.toString(quantity));
-            mPriceEditText.setText(Float.toString(price));
+            mPriceEditText.setText(decimalFormat.format(price));
+            mImageButton.setImageBitmap(mImageBitmap);
 
         }
 
@@ -168,9 +239,12 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     @Override
     public void onBackPressed() {
         if (!itemChanged){
+            Log.e("EditorActivity","No changes");
             super.onBackPressed();
             return;
         }
+
+        Log.e("EditorActivity","There are changes");
 
         DialogInterface.OnClickListener discardButtonListener = new DialogInterface.OnClickListener() {
             @Override
@@ -179,11 +253,11 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             }
         };
 
-        showUnsavedChnageDialog(discardButtonListener);
+        showUnsavedChangeDialog(discardButtonListener);
 
     }
 
-    private void  showUnsavedChnageDialog(DialogInterface.OnClickListener discardButtonListener){
+    private void  showUnsavedChangeDialog(DialogInterface.OnClickListener discardButtonListener){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.unsaved_changes_dialog_message);
         builder.setPositiveButton(R.string.discard, discardButtonListener);
@@ -226,5 +300,41 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             else Toast.makeText(this, "Item deleted",Toast.LENGTH_SHORT).show();
         }
         finish();
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.e("EditorActivity", "Activity on Result "+requestCode+", code: "+GET_FROM_GALLERY+", "+Activity.RESULT_OK);
+        if (requestCode == GET_FROM_GALLERY ){
+            Uri image = data.getData();
+            Bitmap bitmap;
+            try{
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), image);
+                bitmap = getResizedBitmap(bitmap, 500);
+                mImageButton.setImageBitmap(bitmap);
+                mImageBitmap = bitmap;
+                Log.e("EditorActivity", "Image is: "+ bitmap);
+
+            }catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e ){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public Bitmap getResizedBitmap(Bitmap image, int maxSize) {
+        int width = image.getWidth();
+        int height = image.getHeight();
+
+        float bitmapRatio = (float)width / (float) height;
+        if (bitmapRatio > 1) {
+            width = maxSize;
+            height = (int) (width / bitmapRatio);
+        } else {
+            height = maxSize;
+            width = (int) (height * bitmapRatio);
+        }
+        return Bitmap.createScaledBitmap(image, width, height, true);
     }
 }

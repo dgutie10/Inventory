@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.example.android.inventory.data.InventoryContract.InventoryEntry;
 
+import java.text.DecimalFormat;
+
 /**
  * Created by diegog on 1/19/2017.
  */
@@ -35,8 +37,10 @@ public class InventoryCursorAdapter extends CursorAdapter {
         int priceColumn = cursor.getColumnIndex(InventoryEntry.COLUMN_ITEM_PRICE);
         int quantityColumn = cursor.getColumnIndex(InventoryEntry.COLUMN_ITEM_QUANTITY);
 
+        DecimalFormat decimalFormat = new DecimalFormat(".00");
+        double priceDouble  = Double.parseDouble(cursor.getString(priceColumn));
         name.setText(cursor.getString(nameColumn));
-        price.setText(cursor.getString(priceColumn));
+        price.setText("$" +decimalFormat.format(priceDouble));
         quantity.setText(cursor.getString(quantityColumn));
 
     }

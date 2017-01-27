@@ -105,7 +105,9 @@ public class InventoryProvider extends ContentProvider {
             return null;
         }
 
-        getContext().getContentResolver().notifyChange(uri, null);
+        Log.e("InventoryProvider","Sending notification");
+
+        getContext().getContentResolver().notifyChange(uri,null);
 
         return ContentUris.withAppendedId(uri,id);
 
@@ -130,7 +132,7 @@ public class InventoryProvider extends ContentProvider {
             default:
                 throw new IllegalArgumentException("Cannot delete unknown URI "+ uri);
         }
-
+        Log.e("InventoryProvider","Sending notification");
         if (rowsDeleted != 0 ) getContext().getContentResolver().notifyChange(uri,null);
         return rowsDeleted;
     }
@@ -166,7 +168,12 @@ public class InventoryProvider extends ContentProvider {
 
         int rowsUpdated =  database.update(InventoryEntry.TABLE_NAME,values,selection,selectionArgs);
 
-        if (rowsUpdated != 0) getContext().getContentResolver().notifyChange(uri,null);
+        Log.e("InventoryProvider","Sending notification "+String.valueOf(rowsUpdated));
+
+        if (rowsUpdated != 0){
+            getContext().getContentResolver().notifyChange(uri,null);
+            Log.e("InventoryProvider","Sending notification Sent: "+uri);
+        }
 
         return rowsUpdated;
     }

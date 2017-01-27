@@ -31,7 +31,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        insertDummyData();
+        Log.e("Main Activity","OnCreate function");
+
+//        insertDummyData();
 
         ListView listView = (ListView) findViewById(R.id.list);
         View emptyView = findViewById(R.id.empty_view);
@@ -91,6 +93,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 InventoryEntry.COLUMN_ITEM_QUANTITY
         };
 
+        Log.e("MainActivity", "Fetching data");
+
         return new CursorLoader(this,
                 InventoryEntry.CONTENT_URI,
                 projection,
@@ -101,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        Log.e("Main Activity","Swap Cursor");
         mCursorAdapter.swapCursor(data);
     }
 
