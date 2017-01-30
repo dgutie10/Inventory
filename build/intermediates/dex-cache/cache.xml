@@ -3,156 +3,156 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_ae59ba39996052b616866c4a48dce52c3e5b7b29\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\diegog\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_c3da0e20ef608de5ebef5d9e07c6492d2a5914d1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_b1c9c4b4f993391ded5d7134c4ac59103f3c775e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_0c3c86bde410f729a8cc9b2e07efb0a8ee1505d0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_bc3cea897ed087ec4acb1b700c7e884d0d79e4b4\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_f7a6b6b5d0bef273c39e1275c8da658181869704\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_eb72480586a4c67b1f4679a5ba004598f07390a7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_363743603b64edd042de297648513fcae612b4ff\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jar="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_01909b35cc2d3a28f3504a3668722a1c8de740b7\classes.dex" />
+        <dex dex="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_dc1258246b2723fb51d525493645d797cdd83cd2\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="8f71d2d0b876a2d7ce326e6d48f77a7f0bfdf9b9">
-        <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_ceedd30c84880c0306ccdb8bbd272b2f469d121d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_0ddb6e13425c24f3a39eff946a722919ff26c0af\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_4287089c1d6b966eb41ccd2f7193149d3a87fd6c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jar="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_1f19e6852a32006fcc6c04e978e833fc7832a358\classes.dex" />
+        <dex dex="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_1e5592a536e0b642937c4f9dca887a235663816a\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jar="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_fba30c5acdd94531d44de99ac80a90f5c8007c25\classes.dex" />
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_67392f7eb36f97ee1b39214d04311af4e9236ee4\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="f6c72db3fd746a33f0b13b4d5479dbfee9b6ff3a">
-        <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_2955b24cdfa68d14fe3022459088f5eae1ef6eb4\classes.dex" />
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_019749182e5b193895010a06b9495030ba16f0c0\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_c28fb2bd9a6296f6223958891f0c877744ab8419\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jar="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
         sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_a05e0e548cdce1de40a7df9a9c9713154ff930b1\classes.dex" />
+        <dex dex="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_19697c9949196621d101894a5fefb51dc95c2be5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_b31d6678d19da9a91043325a67014005601780f7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_b4777010a0d3b65a8b28fa4969fc8a99023d007f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_e371e0e28324dbcd60331e735b1d05baa038aa0f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_1f9f5548101c71b934ae8f82ae4c736fda81a10b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="fb482bbf811b6129c137fc7d1a71adc4a4c4a27d">
+        <dex dex="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_5e17d8914996d946d72de5c1af022f542e29f46b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_d486c841ff850f94951b197b3b2551541bae8d63\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_d5fa8bbdb5cc214391a0d200d6814bb1556e8c07\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dguti\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_958d9ef34a9ae4e74f67b255af05fc308b4d5c02\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="4aabaf7246d826ad6eae873dfcbb837722cd9ce0">
+        <dex dex="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_d74a70d8019fb0155507435d131c856f4b239fc3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_69e5f3c3ec9c85de73c6b3f1eab494f674a86ee5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_3abc14d0ee349ffb7870ef58bc30804a30a267a3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\Users\dguti\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_bed85b438e1f655c83f5008d1a74c530eec28006\classes.dex" />
     </item>
 
 </items>

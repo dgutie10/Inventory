@@ -119,5 +119,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         super.onStart();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getLoaderManager().restartLoader(INVENTORY_LOADER, null, this);
+    }
+
 
 }
