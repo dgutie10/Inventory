@@ -43,6 +43,8 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     private EditText mNameEditText;
     private EditText mPriceEditText;
     private EditText mQuantityEditText;
+    private EditText mProviderEmail;
+    private EditText mProviderName;
     private ImageButton mImageButton;
     private Bitmap mImageBitmap;
 
@@ -81,6 +83,8 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         mNameEditText = (EditText) findViewById(R.id.item_name);
         mPriceEditText = (EditText) findViewById(R.id.item_price);
         mQuantityEditText = (EditText) findViewById(R.id.item_quantity);
+        mProviderEmail = (EditText) findViewById(R.id.item_provider_email);
+        mProviderName = (EditText) findViewById(R.id.item_provider_name);
         mImageButton = (ImageButton) findViewById(R.id.item_image);
 
 
@@ -88,6 +92,8 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         mPriceEditText.setOnTouchListener(onTouchListener);
         mQuantityEditText.setOnTouchListener(onTouchListener);
         mImageButton.setOnTouchListener(onTouchListener);
+        mProviderName.setOnTouchListener(onTouchListener);
+        mProviderEmail.setOnTouchListener(onTouchListener);
 
         mImageButton.setOnClickListener(new ImageButton.OnClickListener(){
             @Override
@@ -115,7 +121,9 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         super.onPrepareOptionsMenu(menu);
         if (currentUri == null){
             MenuItem menuItem = menu.findItem(R.id.action_delete_item);
+            MenuItem orderItem = menu.findItem(R.id.action_order_item);
             menuItem.setVisible(false);
+            orderItem.setVisible(false);
         }
         return true;
     }
@@ -129,6 +137,9 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                 return true;
             case R.id.action_delete_item:
                 showDeleteConfirmationDialog();
+                return true;
+            case R.id.action_order_item:
+                orderItem(orderBody());
                 return true;
             case android.R.id.home:
                 if (!itemChanged){
@@ -154,6 +165,8 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         String name = mNameEditText.getText().toString().trim();
         String price = mPriceEditText.getText().toString().trim();
         String quantity = mQuantityEditText.getText().toString().trim();
+        String providerName = mProviderName.getText().toString().trim();
+        String providerEmail = mProviderEmail.getText().toString().trim();
 
         if (mImageBitmap != null){
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -163,14 +176,15 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         }
 
 
-        if (currentUri ==null && TextUtils.isEmpty(name)&& TextUtils.isEmpty(price)&& TextUtils.isEmpty(quantity)) {
+        if (currentUri ==null && TextUtils.isEmpty(name)&& TextUtils.isEmpty(price)&& TextUtils.isEmpty(quantity) && TextUtils.isEmpty(providerEmail) && TextUtils.isEmpty(providerName)) {
             return;
         }
 
         values.put(InventoryEntry.COLUMN_ITEM_NAME, name);
+        values.put(InventoryEntry.COLUMN_PROVIDER_NAME, providerName);
+        values.put(InventoryEntry.COLUMN_PROVIDER_EMAIL, providerEmail);
         values.put(InventoryEntry.COLUMN_ITEM_QUANTITY,Integer.parseInt(quantity));
         values.put(InventoryEntry.COLUMN_ITEM_PRICE, Double.parseDouble(price));
-        ;
 
 
 
@@ -195,6 +209,8 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                     InventoryEntry.COLUMN_ITEM_NAME,
                     InventoryEntry.COLUMN_ITEM_PRICE,
                     InventoryEntry.COLUMN_ITEM_QUANTITY,
+                    InventoryEntry.COLUMN_PROVIDER_NAME,
+                    InventoryEntry.COLUMN_PROVIDER_EMAIL,
                     InventoryEntry.COLUMN_ITEM_PICTURE
             };
             return  new CursorLoader(this,
@@ -217,6 +233,8 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             int quantity = data.getInt(data.getColumnIndex(InventoryEntry.COLUMN_ITEM_QUANTITY));
             float price = data.getFloat(data.getColumnIndex(InventoryEntry.COLUMN_ITEM_PRICE));
             byte[] image = data.getBlob(data.getColumnIndex(InventoryEntry.COLUMN_ITEM_PICTURE));
+            String providerName = data.getString(data.getColumnIndex(InventoryEntry.COLUMN_PROVIDER_NAME));
+            String providerEmail = data.getString(data.getColumnIndex(InventoryEntry.COLUMN_PROVIDER_EMAIL));
 
             mImageBitmap = BitmapFactory.decodeByteArray(image,0, image.length);
 
@@ -225,7 +243,9 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             mNameEditText.setText(name);
             mQuantityEditText.setText(Integer.toString(quantity));
             mPriceEditText.setText(decimalFormat.format(price));
-            mImageButton.setImageBitmap(mImageBitmap);
+            mProviderEmail.setText(providerEmail);
+            mProviderName.setText(providerName);
+            if (image.length != 2) mImageButton.setImageBitmap(mImageBitmap);
 
         }
 
@@ -239,12 +259,10 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     @Override
     public void onBackPressed() {
         if (!itemChanged){
-            Log.e("EditorActivity","No changes");
             super.onBackPressed();
             return;
         }
 
-        Log.e("EditorActivity","There are changes");
 
         DialogInterface.OnClickListener discardButtonListener = new DialogInterface.OnClickListener() {
             @Override
@@ -304,21 +322,21 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.e("EditorActivity", "Activity on Result "+requestCode+", code: "+GET_FROM_GALLERY+", "+Activity.RESULT_OK);
         if (requestCode == GET_FROM_GALLERY ){
-            Uri image = data.getData();
-            Bitmap bitmap;
-            try{
-                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), image);
-                bitmap = getResizedBitmap(bitmap, 500);
-                mImageButton.setImageBitmap(bitmap);
-                mImageBitmap = bitmap;
-                Log.e("EditorActivity", "Image is: "+ bitmap);
+            if (data != null) {
+                Uri image = data.getData();
+                Bitmap bitmap;
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), image);
+                    bitmap = getResizedBitmap(bitmap, 500);
+                    mImageButton.setImageBitmap(bitmap);
+                    mImageBitmap = bitmap;
 
-            }catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e ){
-                e.printStackTrace();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -336,5 +354,27 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             width = (int) (height * bitmapRatio);
         }
         return Bitmap.createScaledBitmap(image, width, height, true);
+    }
+
+    public void orderItem(String body){
+        String[]  providerEmail = {mProviderEmail.getText().toString().trim()};
+        String itemName = mNameEditText.getText().toString().trim();
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setType("text/html");
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, providerEmail);
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Order for "+itemName);
+        intent.putExtra(Intent.EXTRA_TEXT,body);
+//        startActivity(Intent.createChooser(intent, "Send Email"));
+        if(intent.resolveActivity(getPackageManager())!= null){startActivity(Intent.createChooser(intent, "Send Email")); }
+    }
+
+    public String orderBody(){
+        String providerName = mProviderName.getText().toString().trim();
+        String itemName = mNameEditText.getText().toString().trim();
+        String body = "Hello "+providerName+",";
+        body += "\nI need to reorder the following item: "+itemName;
+        body += "\n Thanks. \n";
+        return body;
     }
 }
