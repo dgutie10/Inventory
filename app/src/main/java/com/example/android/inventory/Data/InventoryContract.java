@@ -38,5 +38,9 @@ public final class InventoryContract {
 
         public static final String COLUMN_ITEM_QUANTITY = "quantity";
 
+        public static final String COLUMN_PROVIDER_EMAIL = "provider_email";
+
+        public static final String COLUMN_PROVIDER_NAME = "provider_name";
+
     }
 }

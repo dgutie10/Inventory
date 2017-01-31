@@ -14,4 +14,7 @@
         android:title="@string/action_delete"
         android:icon="@drawable/ic_delete_white_24dp"
         app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_order_item"
+        android:title="Order Item"/>
 </menu>

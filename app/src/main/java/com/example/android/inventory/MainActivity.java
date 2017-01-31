@@ -31,10 +31,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.e("Main Activity","OnCreate function");
-
-//        insertDummyData();
-
         ListView listView = (ListView) findViewById(R.id.list);
         View emptyView = findViewById(R.id.empty_view);
         listView.setEmptyView(emptyView);
@@ -56,15 +52,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         getLoaderManager().initLoader(INVENTORY_LOADER, null, this);
     }
 
-    private void insertDummyData(){
-        ContentValues values = new ContentValues();
-        values.put(InventoryEntry.COLUMN_ITEM_NAME,"Phone");
-        values.put(InventoryEntry.COLUMN_ITEM_PRICE,700.00);
-        values.put(InventoryEntry.COLUMN_ITEM_QUANTITY, 1);
-
-        Uri NewRowUri = getContentResolver().insert(InventoryEntry.CONTENT_URI, values);
-        Log.e("MainActivity", "New row ID: "+ NewRowUri);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -90,10 +77,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 InventoryEntry._ID,
                 InventoryEntry.COLUMN_ITEM_NAME,
                 InventoryEntry.COLUMN_ITEM_PRICE,
+                InventoryEntry.COLUMN_PROVIDER_NAME,
+                InventoryEntry.COLUMN_PROVIDER_EMAIL,
                 InventoryEntry.COLUMN_ITEM_QUANTITY
         };
 
-        Log.e("MainActivity", "Fetching data");
 
         return new CursorLoader(this,
                 InventoryEntry.CONTENT_URI,
@@ -105,7 +93,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        Log.e("Main Activity","Swap Cursor");
         mCursorAdapter.swapCursor(data);
     }
 
