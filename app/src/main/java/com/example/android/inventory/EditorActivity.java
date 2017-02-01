@@ -236,7 +236,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
             mImageBitmap = BitmapFactory.decodeByteArray(image,0, image.length);
 
-            DecimalFormat decimalFormat = new DecimalFormat(".00");
+            DecimalFormat decimalFormat = new DecimalFormat("");
 
             mNameEditText.setText(name);
             mQuantityEditText.setText(Integer.toString(quantity));
