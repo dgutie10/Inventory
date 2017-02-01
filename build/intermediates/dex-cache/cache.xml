@@ -88,7 +88,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="a35c1ac04e95c0a44f18c55179de8a683b1668da">
+        sha1="c406c78f54713432e37a066f52f190e4b590efa5">
         <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_ceedd30c84880c0306ccdb8bbd272b2f469d121d\classes.dex" />
     </item>
     <item
@@ -133,7 +133,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="67498581dade4e1c3c8c3ce23b4146ae1c8b1970">
+        sha1="349f8cac1a15e47dd19cc6c27eef35874a3dc6b6">
         <dex dex="C:\Users\diegog\AndroidStudioProjects\Udacity\Inventory\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_2955b24cdfa68d14fe3022459088f5eae1ef6eb4\classes.dex" />
     </item>
     <item

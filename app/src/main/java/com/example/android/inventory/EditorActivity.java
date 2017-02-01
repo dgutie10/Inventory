@@ -1,6 +1,5 @@
 package com.example.android.inventory;
 
-import android.app.Activity;
 import android.app.LoaderManager;
 import android.content.ContentValues;
 import android.content.CursorLoader;
@@ -17,8 +16,6 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.FloatProperty;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -176,7 +173,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         }
 
 
-        if (currentUri ==null && TextUtils.isEmpty(name)&& TextUtils.isEmpty(price)&& TextUtils.isEmpty(quantity) && TextUtils.isEmpty(providerEmail) && TextUtils.isEmpty(providerName)) {
+        if (currentUri ==null && TextUtils.isEmpty(name) || TextUtils.isEmpty(price)|| TextUtils.isEmpty(quantity) || TextUtils.isEmpty(providerEmail) || TextUtils.isEmpty(providerName)) {
             return;
         }
 
@@ -199,6 +196,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             if (itemUpdated != 0) Toast.makeText(this,"Item Saved", Toast.LENGTH_SHORT).show();
             else Toast.makeText(this, "Error Updating Item"+ String.valueOf(itemUpdated), Toast.LENGTH_SHORT).show();
         }
+        finish();
     }
 
     @Override
@@ -365,7 +363,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         intent.putExtra(Intent.EXTRA_EMAIL, providerEmail);
         intent.putExtra(Intent.EXTRA_SUBJECT, "Order for "+itemName);
         intent.putExtra(Intent.EXTRA_TEXT,body);
-//        startActivity(Intent.createChooser(intent, "Send Email"));
         if(intent.resolveActivity(getPackageManager())!= null){startActivity(Intent.createChooser(intent, "Send Email")); }
     }
 

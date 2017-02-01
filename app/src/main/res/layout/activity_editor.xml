@@ -62,6 +62,7 @@
                 <EditText
                     android:id="@+id/item_price"
                     style="@style/EditTextStyle"
+                    android:inputType="numberDecimal"
                     android:hint="Price" />
             </LinearLayout>
 
@@ -78,6 +79,7 @@
                 <EditText
                     android:id="@+id/item_quantity"
                     style="@style/EditTextStyle"
+                    android:inputType="number"
                     android:hint="Quantity" />
             </LinearLayout>
 
@@ -110,6 +112,7 @@
                 <EditText
                     android:id="@+id/item_provider_email"
                     style="@style/EditTextStyle"
+                    android:inputType="textEmailAddress"
                     android:hint="Provider Email" />
             </LinearLayout>
 
